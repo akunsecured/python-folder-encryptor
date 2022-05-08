@@ -84,7 +84,8 @@ try:
     # building the cipher
     key = hashlib.sha256(password).digest()
     mode = AES.MODE_CBC
-    cipher = AES.new(key, mode)
+    IV = 'This is a IV1234'.encode()
+    cipher = AES.new(key, mode, IV)
 
     # for print
     mode = 'Decrypt' if decryption else 'Encrypt'
